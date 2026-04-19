@@ -1,12 +1,12 @@
-import { expect } from '../../../common/helpers/pw';
-import { BasePage } from '../BasePage';
+import { BaseArticleContentBlock } from "./BaseArticleContentBlock";
+import { expect } from '../../common/helpers/pw';
 
-export class ViewArticlePage extends BasePage {
-  articleId;
+export class ArticleContentBlock extends BaseArticleContentBlock {
+  #articleTitleHeader;
 
   constructor(page, userId = 0) {
     super(page, userId);
-    this.articleTitleHeader = page.getByRole('heading');
+    this.#articleTitleHeader = this.page.getByRole('heading');
   }
 
   authorLinkInArticleHeader(username) {
@@ -19,7 +19,7 @@ export class ViewArticlePage extends BasePage {
 
   async assertArticleTitleIsVisible(title) {
     await this.step(`Assert the article has correct title`, async () => {
-      await expect(this.articleTitleHeader).toContainText(title);
+      await expect(this.#articleTitleHeader).toContainText(title);
     });
   }
 
