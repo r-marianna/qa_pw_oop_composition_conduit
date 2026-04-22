@@ -12,7 +12,7 @@ export class ArticleFeedItem extends BaseComponent {
 
   articleTitle(title) {
     return this.articleItem(title)
-      .getByRole("link", { name: `Article title: ${title}` });
+      .getByRole("link", { name: title });
   }
 
   articleAuthor(title, author) {

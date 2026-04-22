@@ -30,7 +30,7 @@ test('Not logged in user can open the article page created by '
   await externalHomePage
     .globalFeed
     .articleFeedItem
-    .clickArticle(articleWithoutTags.title);
+    .clickOnArticleTitle(articleWithoutTags.title);
 
   await viewArticlePage
     .articleContentBlock

@@ -2,11 +2,8 @@ import { BaseArticleContentBlock } from "./BaseArticleContentBlock";
 import { expect } from '../../common/helpers/pw';
 
 export class ArticleContentBlock extends BaseArticleContentBlock {
-  #articleTitleHeader;
-
   constructor(page, userId = 0) {
     super(page, userId);
-    this.#articleTitleHeader = this.page.getByRole('heading');
   }
 
   authorLinkInArticleHeader(username) {
@@ -19,7 +16,7 @@ export class ArticleContentBlock extends BaseArticleContentBlock {
 
   async assertArticleTitleIsVisible(title) {
     await this.step(`Assert the article has correct title`, async () => {
-      await expect(this.#articleTitleHeader).toContainText(title);
+      await expect(this.articleTitleHeader).toContainText(title);
     });
   }
 
