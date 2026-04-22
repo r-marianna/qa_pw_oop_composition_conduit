@@ -6,9 +6,6 @@ export class ArticleContentBlock extends BaseArticleContentBlock {
     super(page, userId);
   }
 
-  authorLinkInArticleHeader(username) {
-    return this.page.getByRole('link', { username }).first();
-  }
 
   tagListItem(tagName) {
     return this.page.getByRole('listitem').filter({ hasText: tagName });
@@ -18,15 +15,6 @@ export class ArticleContentBlock extends BaseArticleContentBlock {
     await this.step(`Assert the article has correct title`, async () => {
       await expect(this.articleTitleHeader).toContainText(title);
     });
-  }
-
-  async assertArticleAuthorNameIsVisible(username) {
-    await this.step(
-      `Assert the article has correct author username`,
-      async () => {
-        await expect(this.authorLinkInArticleHeader(username)).toBeVisible();
-      },
-    );
   }
 
   async assertArticleTextIsVisible(text) {

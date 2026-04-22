@@ -5,4 +5,8 @@ export class BaseArticleContentBlock extends BasePage {
     super(page, userId);
     this.articleTitleHeader = page.getByRole('heading');
   }
+
+  authorLinkInArticleHeader(username) {
+    return this.page.getByRole('link', { name: username }).first();
+  }
 }

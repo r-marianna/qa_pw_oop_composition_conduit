@@ -27,6 +27,6 @@ test('View an article created by another user', async ({
     .articleContentBlock
     .assertArticleTextIsVisible(articleWithoutTags.text);
   await viewArticlePage
-    .articleContentBlock
+    .authorsArticleContentBlock
     .assertArticleAuthorNameIsVisible(users[0].username);
 });
